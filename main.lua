@@ -1,17 +1,15 @@
 -- Imports
-local Color = require("color.lua")
-local Utils = require("utils.lua")
-
--- Global colors
-
+require("color")
+require("utils")
 
 -- Main functions
 function love.load()
- 
+    -- Global colors
+    Color_background = Color:new(0.5, 0.5, 0.5)
 end
 
 function love.draw()
-    love.graphics.clear(0, 0, 0, 1)
+    love.graphics.clear(Color_background:rgba())
 end
 
 function love.update()

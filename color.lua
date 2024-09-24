@@ -25,6 +25,14 @@ function Color:new(r, g, b, a)
 	return color
 end
 
+-- funciton Color:random
+
+function Color:rgba()
+	return self.r, self.g, self.b, self.a
+end
+
+-- function Color:rgb
+
 -- Metamethods
 function Color:__tostring()
 	if self.a < 1 then
