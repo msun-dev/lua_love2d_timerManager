@@ -16,22 +16,33 @@ Color.__index = Color
 
 -- Methods
 function Color:new(r, g, b, a)
-	local color = {}
-	setmetatable(color, Color)
-	if r then color.r = r else color.r = 0 end
-	if g then color.g = g else color.g = 0 end
-	if b then color.b = b else color.b = 0 end
-	if a then color.a = a else color.a = 1 end
-	return color
+	local object = {}
+	setmetatable(object, Color)
+	if r then object.r = r else object.r = 0.0 end
+	if g then object.g = g else object.g = 0.0 end
+	if b then object.b = b else object.b = 0.0 end
+	if a then object.a = a else object.a = 1.0 end
+	return object
 end
 
--- funciton Color:random
+function Color:random()
+	-- TODO: strip to 2 decimals after point for every channel
+	local object = {}
+	setmetatable(object, Color)
+	object.r = math.random()
+	object.g = math.random()
+	object.b = math.random()
+	object.a = 1.0
+	return object
+end
 
 function Color:rgba()
 	return self.r, self.g, self.b, self.a
 end
 
--- function Color:rgb
+function Color:rgb()
+	return self.r, self.g, self.b
+end
 
 -- Metamethods
 function Color:__tostring()

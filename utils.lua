@@ -8,3 +8,7 @@ end
 function Utils.clamp(x, min, max)
 	return x < min and min or x > max and max or x
 end
+
+function Utils.strip(num, decimals)
+
+end

@@ -5,11 +5,12 @@ require("utils")
 -- Main functions
 function love.load()
     -- Global colors
-    Color_background = Color:new(0.5, 0.5, 0.5)
+    Color_background = Color:random()
 end
 
 function love.draw()
     love.graphics.clear(Color_background:rgba())
+    print(Color_background)
 end
 
 function love.update()
