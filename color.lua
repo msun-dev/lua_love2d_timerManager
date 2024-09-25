@@ -1,4 +1,4 @@
---local utils = require(utils.lua)
+local utils = require("utils")
 
 Color = {
 	r=0,
@@ -26,13 +26,13 @@ function Color:new(r, g, b, a)
 end
 
 function Color:random()
-	-- TODO: strip to 2 decimals after point for every channel
 	local object = {}
 	setmetatable(object, Color)
-	object.r = math.random()
-	object.g = math.random()
-	object.b = math.random()
+	object.r = utils.strip(math.random(), 2)
+	object.g = utils.strip(math.random(), 2)
+	object.b = utils.strip(math.random(), 2)
 	object.a = 1.0
+	print(object.r, object.g, object.b)
 	return object
 end
 
@@ -63,3 +63,8 @@ function Color:__tostring()
 		)
 	end
 end
+
+local color_rand = Color:random()
+print(color_rand)
+print(color_rand:rgb())
+print(color_rand:rgba())
