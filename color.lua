@@ -50,17 +50,17 @@ function Color:__tostring()
 	if self.a < 1 then
 		return string.format(
 			"#%02x%02x%02x%02x",
-			self.r,
-			self.g,
-			self.b,
-			self.a
+			utils.round(self.r * 0xff),
+			utils.round(self.g * 0xff),
+			utils.round(self.b * 0xff),
+			utils.round(self.a * 0xff)
 		)
 	else
 		return string.format(
 			"#%02x%02x%02x",
-			self.r,
-			self.g,
-			self.b
+			utils.round(self.r * 0xff),
+			utils.round(self.g * 0xff),
+			utils.round(self.b * 0xff)
 		)
 	end
 end
