@@ -28,6 +28,7 @@ end
 function Color:random()
 	local object = {}
 	setmetatable(object, Color)
+	math.randomseed(os.time())
 	object.r = utils.strip(math.random(), 2)
 	object.g = utils.strip(math.random(), 2)
 	object.b = utils.strip(math.random(), 2)
@@ -63,8 +64,3 @@ function Color:__tostring()
 		)
 	end
 end
-
-local color_rand = Color:random()
-print(color_rand)
-print(color_rand:rgb())
-print(color_rand:rgba())
