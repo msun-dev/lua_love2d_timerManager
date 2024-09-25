@@ -8,12 +8,6 @@ Color = {
 }
 Color.__index = Color
 
--- function Color:__tostring()
--- 	local string = "Color: \n"
--- 	string = string .. "R: " .. self.r .. ". G: " .. self.g .. ". B: " .. self.b .. "."
--- 	return string
--- end
-
 -- Methods
 function Color:new(r, g, b, a)
 	local object = {}
