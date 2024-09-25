@@ -5,7 +5,6 @@ require("color")
 function love.load()
     -- Global colors
     Color_background = Color:random()
-    print(Color_background)
 end
 
 function love.draw()
@@ -13,5 +12,5 @@ function love.draw()
 end
 
 function love.update()
-
+    Color_background:randomize_rgb()
 end

@@ -1,5 +1,7 @@
 local utils = require("utils")
 
+local Color_precision = 2
+
 Color = {
 	r=0,
 	g=0,
@@ -23,12 +25,22 @@ function Color:random()
 	local object = {}
 	setmetatable(object, Color)
 	math.randomseed(os.time())
-	object.r = utils.strip(math.random(), 2)
-	object.g = utils.strip(math.random(), 2)
-	object.b = utils.strip(math.random(), 2)
+	object.r = utils.strip(math.random(), Color_precision)
+	object.g = utils.strip(math.random(), Color_precision)
+	object.b = utils.strip(math.random(), Color_precision)
 	object.a = 1.0
-	print(object.r, object.g, object.b)
 	return object
+end
+
+function Color:randomize_rgb()
+	self.r = utils.strip(math.random(), Color_precision)
+	self.g = utils.strip(math.random(), Color_precision)
+	self.b = utils.strip(math.random(), Color_precision)
+end
+
+function Color:randomize_rgba()
+	self.Color:randomize_rgb()
+	self.a = utils.strip(math.random(), Color_precision)
 end
 
 function Color:rgba()
