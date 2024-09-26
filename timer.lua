@@ -8,7 +8,7 @@ Timer = {
     callback = nil,      -- Called upon ending
 
     time_left = 0,       -- How much time left
-    stopped = false      -- Is timer running?
+    stopped = true       -- Is timer running?
 }
 Timer.__index = Timer
 Timer.__type = "Timer"
@@ -20,9 +20,9 @@ function Timer:new(settings)
     assert(settings.callback ~= nil, string.format("%s%s: Missing callback for timer.", self.__type, self.uuid))
     local object = {}
     setmetatable(object, Timer)
-    self.duration = settings.duration or self.duration
-    self.autostart = settings.autostart or self.autostart
-    self.repeating = settings.repeating or self.repeating
+    if settings.duration ~= nil then self.duration = settings.duration end
+    if settings.autostart ~= nil then self.autostart = settings.autostart end
+    if settings.repeating ~= nil then self.repeating = settings.repeating end
     self.callback = settings.callback
     return object
 end
@@ -60,8 +60,8 @@ function Timer:execute()
 end
 
 function Timer:update(delta)
-    if self.autostart and self.process == false then self:start() end
-    if self.process == false then return end
+    if self.autostart and self.stopped then self:start() end
+    if self.stopped == true then return end
     self.time_left = self.time_left - delta
     if self.time_left < 0.0 then self:execute() end
 end
