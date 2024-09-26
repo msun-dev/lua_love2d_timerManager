@@ -15,7 +15,7 @@ end
 
 function utils.gen_uuid(prefix)
 	math.randomseed(seed)
-	local template = ("-xxxxxxxx")
+	local template = ("-xxxxxxxx-xxxx-xxxx-xxxxxxxx")
 	local uuid = string.gsub(template, "[x]", function(c)
 		local s = math.random(0, 0xf)
 		return string.format("%x", s)
