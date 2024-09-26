@@ -28,7 +28,7 @@ function TimerManager:get_timer(timer_name)
 end
 
 function TimerManager:update(delta)
-    -- TODO
+    -- TODO: fix 
     for i, timer in pairs(self.timers) do
         timer:update(delta)
         if timer:get_timeleft() < 0 then print("remove table") end
@@ -40,7 +40,8 @@ function TimerManager:update(delta)
 end
 
 function TimerManager:__tostring()
+    local out = "Current timers:\n"
     for timer in self.timers do
-        print("\tCurrent timers:\n"..string.format(timer:__tostring().."\n"))
+        out = string.format(out.."\t"..timer:__tostring().."\n")
     end
 end
