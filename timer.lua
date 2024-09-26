@@ -24,6 +24,7 @@ function Timer:new(settings)
     if settings.autostart ~= nil then self.autostart = settings.autostart end
     if settings.repeating ~= nil then self.repeating = settings.repeating end
     self.callback = settings.callback
+    if self.autostart then self:start() end
     return object
 end
 
@@ -60,7 +61,14 @@ function Timer:execute()
 end
 
 function Timer:update(delta)
-    if self.autostart and self.stopped then self:start() end
+    -- if self.autostart and self.stopped then
+    --     self:start()
+    --     print("from autostart")
+    -- end
+    if self.repeating and self.stopped then 
+        self:start() 
+        print("from repeating")
+    end
     if self.stopped == true then return end
     self.time_left = self.time_left - delta
     if self.time_left < 0.0 then self:execute() end
