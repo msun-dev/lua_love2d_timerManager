@@ -19,8 +19,8 @@ function TimerManager:create_timer(settings)
     return timer.uuid
 end
 
-function TimerManager:remove_timer(name)
-    -- self.timers.remove(timer) ?
+function TimerManager:remove_timer(timer_name)
+    self.timers[timer_name] = nil
 end
 
 function TimerManager:get_timer(timer_name)
