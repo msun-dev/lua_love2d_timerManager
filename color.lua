@@ -46,7 +46,7 @@ function Color:randomize_rgb()
 end
 
 function Color:randomize_rgba()
-	self.Color:randomize_rgb()
+	self:randomize_rgb()
 	self.a = Utils.strip(math.random(), Color_precision)
 end
 
