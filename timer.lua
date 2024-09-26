@@ -2,12 +2,12 @@ local Utils = require("utils")
 
 Timer = {
     uuid = "",           -- Assigned randomly
-    duration = 1,      -- Timer duration
+    duration = 1,        -- Timer duration
     autostart = true,    -- Starts automatically after creating
     repeating = false,   -- Repeats automatically after ending
     callback = nil,      -- Called upon ending
 
-    time_left = 0,     -- How much time left
+    time_left = 0,       -- How much time left
     process = false,     -- Is timer running?
     ended = false        -- Becomes true when ended
 }
@@ -39,26 +39,19 @@ function Timer:start()
 end
 
 function Timer:stop()
+    -- FIXME: Will not work with autostart timer
     self.process = false
 end
 
 function Timer:execute()
     self.callback()
     self.ended = true
-    self.process = false -- Remove when timerManager implemented
+    self.process = false -- FIXME: Remove when timerManager implemented
 end
 
 function Timer:update(delta)
-    if self.autostart and self.process == false then
-        print("autostart!")
-        self:start()
-    end
-    -- Updates time left to a timer
-    --print("upd")
+    if self.autostart and self.process == false then self:start() end
     if self.process == false then return end
-    --print(string.format("Update after "..tostring(self.process)))
-
-
     self.time_left = self.time_left - delta
     if self.time_left < 0.0 then
         self:execute()
@@ -71,7 +64,7 @@ function Timer:__tostring()
                         "|Duration: "..self.duration..
                         "|Autostart: "..tostring(self.autostart)..
                         "|Repeating: "..tostring(self.repeating)..
-                        -- Add callback body?
+                        -- TODO: Add callback body?
                         "|Time left: "..self.time_left..
                         "|Ended: "..tostring(self.ended))
 end
