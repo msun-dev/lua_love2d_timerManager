@@ -54,7 +54,6 @@ end
 function Timer:execute()
     self.callback()
     self.stopped = true
-    self.process = false -- FIXME: Remove when timerManager implemented
 end
 
 function Timer:update(delta)
