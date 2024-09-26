@@ -68,10 +68,10 @@ end
 -- Metamethods
 function Timer:__tostring()
      return string.format(self.uuid..
-                        "|Duration: "..self.duration..
-                        "|Autostart: "..tostring(self.autostart)..
-                        "|Repeating: "..tostring(self.repeating)..
+                        "| Duration: "..self.duration..
+                        "| Autostart: "..tostring(self.autostart)..
+                        "| Repeating: "..tostring(self.repeating)..
                         -- TODO: Add callback body?
-                        "|Time left: "..self.time_left..
-                        "|Stopped: "..tostring(self.stopped))
+                        "| Time left: "..self.time_left..
+                        "| Stopped: "..tostring(self.stopped))
 end
