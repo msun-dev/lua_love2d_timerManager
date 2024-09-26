@@ -52,9 +52,9 @@ end
 
 function Timer:execute()
     self.callback()
-    if  self.repeating then 
+    if  self.repeating then
         self:start()
-    else 
+    else
         self.stopped = true
     end
 end
