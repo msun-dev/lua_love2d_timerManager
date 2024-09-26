@@ -66,5 +66,5 @@ function Timer:__tostring()
                         "|Repeating: "..tostring(self.repeating)..
                         -- TODO: Add callback body?
                         "|Time left: "..self.time_left..
-                        "|Ended: "..tostring(self.stopped))
+                        "|Stopped: "..tostring(self.stopped))
 end
