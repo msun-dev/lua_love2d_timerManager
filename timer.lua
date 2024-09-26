@@ -32,6 +32,14 @@ function Timer:get_type()
     return self.__type
 end
 
+function Timer:get_timeleft()
+    return self.time_left
+end
+
+function Timer:is_stopped()
+    return self.stopped
+end
+
 -- Timer methods
 function Timer:start()
     self.time_left = self.duration
