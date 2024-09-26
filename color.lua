@@ -12,13 +12,13 @@ Color.__index = Color
 Color.__type = "Color"
 
 -- Methods
-function Color:new(r, g, b, a)
+function Color:new(parameters)
 	local object = {}
 	setmetatable(object, Color)
-	if r then object.r = r else object.r = 0.0 end
-	if g then object.g = g else object.g = 0.0 end
-	if b then object.b = b else object.b = 0.0 end
-	if a then object.a = a else object.a = 1.0 end
+	if parameters.r ~= nil then object.r = parameters.r else object.r = 0.0 end
+	if parameters.g ~= nil then object.g = parameters.g else object.g = 0.0 end
+	if parameters.b ~= nil then object.b = parameters.b else object.b = 0.0 end
+	if parameters.a ~= nil then object.a = parameters.a else object.a = 1.0 end
 	return object
 end
 
