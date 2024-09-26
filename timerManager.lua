@@ -28,6 +28,11 @@ function TimerManager:get_timer(timer_name)
 end
 
 function TimerManager:update(delta)
+    -- TODO
+    for i, timer in pairs(self.timers) do
+        timer:update(delta)
+        if timer:get_timeleft() < 0 then print("remove table") end
+    end
     -- for every timer in self.timers
         -- timer:update(delta) 
         -- if timer.ended and timer.repeating() then self:remove_timer(timer) end
