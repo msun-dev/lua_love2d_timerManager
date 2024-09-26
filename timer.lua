@@ -8,8 +8,7 @@ Timer = {
     callback = nil,      -- Called upon ending
 
     time_left = 0,       -- How much time left
-    process = false,     -- Is timer running?
-    stopped = false      -- Becomes true when ended
+    stopped = false      -- Is timer running?
 }
 Timer.__index = Timer
 Timer.__type = "Timer"
@@ -43,7 +42,7 @@ end
 -- Timer methods
 function Timer:start()
     self.time_left = self.duration
-    self.process = true
+    self.stopped = false
 end
 
 function Timer:stop()
@@ -53,16 +52,18 @@ end
 
 function Timer:execute()
     self.callback()
-    self.stopped = true
+    if  self.repeating then 
+        self:start()
+    else 
+        self.stopped = true
+    end
 end
 
 function Timer:update(delta)
     if self.autostart and self.process == false then self:start() end
     if self.process == false then return end
     self.time_left = self.time_left - delta
-    if self.time_left < 0.0 then
-        self:execute()
-    end
+    if self.time_left < 0.0 then self:execute() end
 end
 
 -- Metamethods

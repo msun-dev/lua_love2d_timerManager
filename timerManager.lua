@@ -31,7 +31,7 @@ function TimerManager:update(delta)
     -- TODO: fix 
     for i, timer in pairs(self.timers) do
         timer:update(delta)
-        if timer:get_timeleft() < 0 then print("remove table") end
+        if timer:get_timeleft() < 0 and timer.repeating ~= true then print("remove table") end
     end
     -- for every timer in self.timers
         -- timer:update(delta) 
@@ -41,7 +41,8 @@ end
 
 function TimerManager:__tostring()
     local out = "Current timers:\n"
-    for timer in self.timers do
+    for i, timer in pairs(self.timers) do
         out = string.format(out.."\t"..timer:__tostring().."\n")
     end
+    return out
 end
