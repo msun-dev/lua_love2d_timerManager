@@ -47,7 +47,7 @@ end
 
 function Timer:stop()
     -- FIXME: Will not work with autostart timer
-    self.process = false
+    self.stopped = false
 end
 
 function Timer:execute()
