@@ -58,7 +58,7 @@ function Color:rgb()
 	return self.r, self.g, self.b
 end
 
-function Color:getType()
+function Color:get_type()
 	return self.__type
 end
 
