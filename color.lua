@@ -1,4 +1,4 @@
-local utils = require("utils")
+local Utils = require("utils")
 
 local Color_precision = 2
 
@@ -32,22 +32,22 @@ function Color:random()
 	local object = {}
 	setmetatable(object, Color)
 	math.randomseed(os.time())
-	object.r = utils.strip(math.random(), Color_precision)
-	object.g = utils.strip(math.random(), Color_precision)
-	object.b = utils.strip(math.random(), Color_precision)
+	object.r = Utils.strip(math.random(), Color_precision)
+	object.g = Utils.strip(math.random(), Color_precision)
+	object.b = Utils.strip(math.random(), Color_precision)
 	object.a = 1.0
 	return object
 end
 
 function Color:randomize_rgb()
-	self.r = utils.strip(math.random(), Color_precision)
-	self.g = utils.strip(math.random(), Color_precision)
-	self.b = utils.strip(math.random(), Color_precision)
+	self.r = Utils.strip(math.random(), Color_precision)
+	self.g = Utils.strip(math.random(), Color_precision)
+	self.b = Utils.strip(math.random(), Color_precision)
 end
 
 function Color:randomize_rgba()
 	self.Color:randomize_rgb()
-	self.a = utils.strip(math.random(), Color_precision)
+	self.a = Utils.strip(math.random(), Color_precision)
 end
 
 function Color:rgba()
@@ -67,17 +67,17 @@ function Color:__tostring()
 	if self.a < 1 then
 		return string.format(
 			"#%02x%02x%02x%02x",
-			utils.round(self.r * 0xff),
-			utils.round(self.g * 0xff),
-			utils.round(self.b * 0xff),
-			utils.round(self.a * 0xff)
+			Utils.round(self.r * 0xff),
+			Utils.round(self.g * 0xff),
+			Utils.round(self.b * 0xff),
+			Utils.round(self.a * 0xff)
 		)
 	else
 		return string.format(
 			"#%02x%02x%02x",
-			utils.round(self.r * 0xff),
-			utils.round(self.g * 0xff),
-			utils.round(self.b * 0xff)
+			Utils.round(self.r * 0xff),
+			Utils.round(self.g * 0xff),
+			Utils.round(self.b * 0xff)
 		)
 	end
 end
