@@ -9,6 +9,7 @@ Color = {
 	a=0
 }
 Color.__index = Color
+Color.__type = "Color"
 
 -- Methods
 function Color:new(r, g, b, a)
@@ -19,6 +20,12 @@ function Color:new(r, g, b, a)
 	if b then object.b = b else object.b = 0.0 end
 	if a then object.a = a else object.a = 1.0 end
 	return object
+end
+
+function Color:invert()
+	self.r = math.abs(self.r - 1)
+	self.g = math.abs(self.g - 1)
+	self.b = math.abs(self.b - 1)
 end
 
 function Color:random()
@@ -49,6 +56,10 @@ end
 
 function Color:rgb()
 	return self.r, self.g, self.b
+end
+
+function Color:getType()
+	return self.__type
 end
 
 -- Metamethods
