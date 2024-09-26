@@ -9,7 +9,7 @@ Timer = {
 
     time_left = 0,       -- How much time left
     process = false,     -- Is timer running?
-    ended = false        -- Becomes true when ended
+    stopped = false      -- Becomes true when ended
 }
 Timer.__index = Timer
 Timer.__type = "Timer"
@@ -22,9 +22,9 @@ function Timer:new(settings)
     local object = {}
     setmetatable(object, Timer)
     self.duration = settings.duration or self.duration
-    self.callback = settings.callback
     self.autostart = settings.autostart or self.autostart
     self.repeating = settings.repeating or self.repeating
+    self.callback = settings.callback
     return object
 end
 
@@ -45,7 +45,7 @@ end
 
 function Timer:execute()
     self.callback()
-    self.ended = true
+    self.stopped = true
     self.process = false -- FIXME: Remove when timerManager implemented
 end
 
@@ -66,5 +66,5 @@ function Timer:__tostring()
                         "|Repeating: "..tostring(self.repeating)..
                         -- TODO: Add callback body?
                         "|Time left: "..self.time_left..
-                        "|Ended: "..tostring(self.ended))
+                        "|Ended: "..tostring(self.stopped))
 end
