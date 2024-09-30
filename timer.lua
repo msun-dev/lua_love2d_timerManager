@@ -10,21 +10,23 @@ Timer = {
     time_left = 0,       -- How much time left
     stopped = true       -- Is timer running?
 }
-Timer.__index = Timer
 Timer.__type = "Timer"
+Timer.__index = Timer
 
 -- General methods
-function Timer:new(settings)
-    self.uuid = Utils.gen_uuid(self.__type)
-    assert(settings ~= nil, string.format("%s%s: Missing settings", self.__type, self.uuid))
-    assert(settings.callback ~= nil, string.format("%s%s: Missing callback for timer.", self.__type, self.uuid))
+function Timer.new(settings)
     local object = {}
     setmetatable(object, Timer)
-    if settings.duration ~= nil then self.duration = settings.duration end
-    if settings.autostart ~= nil then self.autostart = settings.autostart end
-    if settings.repeating ~= nil then self.repeating = settings.repeating end
-    self.callback = settings.callback
-    if self.autostart then self:start() end
+    object.uuid = Utils.gen_uuid(object.__type)
+    
+    assert(settings, string.format("%s: Missing settings", object.uuid))
+    assert(settings.callback, string.format("%s: Missing callback for timer.", object.uuid))
+    
+    if settings.duration ~= nil then object.duration = settings.duration end
+    if settings.autostart ~= nil then object.autostart = settings.autostart end
+    if settings.repeating ~= nil then object.repeating = settings.repeating end
+    object.callback = settings.callback
+    if object.autostart then object:start() end
     return object
 end
 
