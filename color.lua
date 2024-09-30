@@ -12,13 +12,13 @@ Color.__index = Color
 Color.__type = "Color"
 
 -- Methods
-function Color:new(parameters)
+function Color.new(parameters)
 	local object = {}
 	setmetatable(object, Color)
-	if parameters.r ~= nil then object.r = parameters.r else object.r = 0.0 end
-	if parameters.g ~= nil then object.g = parameters.g else object.g = 0.0 end
-	if parameters.b ~= nil then object.b = parameters.b else object.b = 0.0 end
-	if parameters.a ~= nil then object.a = parameters.a else object.a = 1.0 end
+	object.r = 0.0 or parameters.r
+	object.g = 0.0 or parameters.g
+	object.b = 0.0 or parameters.b
+	object.a = 1.0 or parameters.a
 	return object
 end
 
@@ -28,21 +28,20 @@ function Color:invert()
 	self.b = math.abs(self.b - 1)
 end
 
-function Color:random()
+function Color.new_random()
 	local object = {}
 	setmetatable(object, Color)
-	math.randomseed(os.time())
-	object.r = Utils.strip(math.random(), Color_precision)
-	object.g = Utils.strip(math.random(), Color_precision)
-	object.b = Utils.strip(math.random(), Color_precision)
+	object.r = Color.generate_color()
+	object.g = Color.generate_color()
+	object.b = Color.generate_color()
 	object.a = 1.0
 	return object
 end
 
 function Color:randomize_rgb()
-	self.r = Utils.strip(math.random(), Color_precision)
-	self.g = Utils.strip(math.random(), Color_precision)
-	self.b = Utils.strip(math.random(), Color_precision)
+	self.r = Color.generate_color()
+	self.g = Color.generate_color()
+	self.b = Color.generate_color()
 end
 
 function Color:randomize_rgba()
@@ -80,4 +79,8 @@ function Color:__tostring()
 			Utils.round(self.b * 0xff)
 		)
 	end
+end
+
+function Color.generate_color()
+	return Utils.strip(love.math.random(), Color_precision)
 end
