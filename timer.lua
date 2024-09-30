@@ -63,15 +63,8 @@ function Timer:execute()
 end
 
 function Timer:update(delta)
-    -- if self.autostart and self.stopped then
-    --     self:start()
-    --     print("from autostart")
-    -- end
-    if self.repeating and self.stopped then 
-        self:start() 
-        print("from repeating")
-    end
-    if self.stopped == true then return end
+    if self.autostart and self.stopped then self:start() end
+    if self.stopped then return end
     self.time_left = self.time_left - delta
     if self.time_left < 0.0 then self:execute() end
 end
