@@ -1,5 +1,4 @@
 local utils = {}
-math.randomseed(os.time())
 
 function utils.round(x)
 	return x + 0.5 - (x + 0.5) % 1
@@ -16,7 +15,7 @@ end
 function utils.gen_uuid(prefix)
 	local template = ("-xxxxxxxx-xxxx-xxxx-xxxxxxxx")
 	local uuid = string.gsub(template, "[x]", function(c)
-		local s = math.random(0, 0xf)
+		local s = love.math.random(0, 0xf)
 		return string.format("%x", s)
 	end)
 	return string.format(prefix .. uuid)
