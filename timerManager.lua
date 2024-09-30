@@ -13,7 +13,7 @@ function TimerManager:initiate()
 end
 
 function TimerManager:create_timer(settings)
-    local timer = Timer:new(settings)
+    local timer = Timer.new(settings)
     self.timers[timer.uuid] = timer
     return timer.uuid
 end
