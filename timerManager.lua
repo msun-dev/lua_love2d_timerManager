@@ -1,7 +1,6 @@
 require("timer")
 
 TimerManager = {
-    uuid = "",
     timers = {}
 }
 TimerManager.__index =  TimerManager
