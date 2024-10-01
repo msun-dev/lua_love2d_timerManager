@@ -30,7 +30,7 @@ function TimerManager:update(delta)
     -- TODO: fix 
     for i, timer in pairs(self.timers) do
         timer:update(delta)
-        if timer:get_timeleft() < 0 and timer.repeating ~= true then print("remove table") end
+        if timer:get_timeleft() < 0 and timer.repeating ~= true then self:remove_timer(timer.uuid) end
     end
     -- for every timer in self.timers
         -- timer:update(delta) 
