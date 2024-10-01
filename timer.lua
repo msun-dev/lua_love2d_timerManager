@@ -83,3 +83,7 @@ end
 function Timer:__add(time)
     self.time_left = self.time_left + time
 end
+
+function Timer:__sub(time)
+    self.time_left = self.time_left - time
+end
