@@ -79,3 +79,7 @@ function Timer:__tostring()
                         "| Time left: "..self.time_left..
                         "| Stopped: "..tostring(self.stopped))
 end
+
+function Timer:__add(time)
+    self.time_left = self.time_left + time
+end
