@@ -1,4 +1,4 @@
-local Utils = require("utils")
+local utils = require("utils")
 
 Timer = {
     uuid = "",           -- Assigned randomly
@@ -16,7 +16,7 @@ Timer.__index = Timer
 function Timer.new(settings)
     local object = {}
     setmetatable(object, Timer)
-    object.uuid = Utils.gen_uuid(object.__type)
+    object.uuid = utils.gen_uuid(object.__type)
 
     assert(settings, string.format("%s: Missing settings", object.uuid))
     assert(settings.callback, string.format("%s: Missing callback for timer.", object.uuid))
@@ -29,6 +29,7 @@ function Timer.new(settings)
     return object
 end
 
+-- Getters/setters
 function Timer:get_timeleft()
     return self.time_left
 end
