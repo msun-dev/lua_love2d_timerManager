@@ -10,7 +10,6 @@ Timer = {
     time_left = 0,       -- How much time left
     stopped = true       -- Is timer running?
 }
-Timer.__type = "Timer"
 Timer.__index = Timer
 
 -- General methods
@@ -30,10 +29,6 @@ function Timer.new(settings)
     return object
 end
 
-function Timer:get_type()
-    return self.__type
-end
-
 function Timer:get_timeleft()
     return self.time_left
 end
@@ -49,7 +44,6 @@ function Timer:start()
 end
 
 function Timer:stop()
-    -- FIXME: Will not work with autostart timer
     self.stopped = false
 end
 
