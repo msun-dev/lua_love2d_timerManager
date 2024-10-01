@@ -69,7 +69,6 @@ function Timer:__tostring()
                         "| Duration: "..self.duration..
                         "| Autostart: "..tostring(self.autostart)..
                         "| Repeating: "..tostring(self.repeating)..
-                        -- TODO: Add callback body?
                         "| Time left: "..self.time_left..
                         "| Stopped: "..tostring(self.stopped))
 end
