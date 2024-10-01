@@ -1,4 +1,4 @@
-local utils = require("utils")
+local Utils = require("utils")
 
 Timer = {
     uuid = "",           -- Assigned randomly
@@ -17,7 +17,7 @@ Timer.__index = Timer
 function Timer.new(settings)
     local object = {}
     setmetatable(object, Timer)
-    object.uuid = utils.gen_uuid(object.__type)
+    object.uuid = Utils.gen_uuid(object.__type)
 
     assert(settings, string.format("%s: Missing settings", object.uuid))
     assert(settings.callback, string.format("%s: Missing callback for timer.", object.uuid))
@@ -63,7 +63,7 @@ function Timer:execute()
 end
 
 function Timer:update(delta)
-    if self.repeating and self.stopped then self:start() end
+    if self.autostart and self.stopped then self:start() end
     if self.stopped then return end
     self.time_left = self.time_left - delta
     if self.time_left < 0.0 then self:execute() end
@@ -75,6 +75,7 @@ function Timer:__tostring()
                         "| Duration: "..self.duration..
                         "| Autostart: "..tostring(self.autostart)..
                         "| Repeating: "..tostring(self.repeating)..
+                        -- TODO: Add callback body?
                         "| Time left: "..self.time_left..
                         "| Stopped: "..tostring(self.stopped))
 end
