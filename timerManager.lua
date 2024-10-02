@@ -1,5 +1,7 @@
 require("timer")
 
+local template = ("-xxxxxxxx-xxxx-xxxx-xxxxxxxx")
+
 TimerManager = {
     timers = {}
 }
@@ -14,6 +16,7 @@ end
 
 function TimerManager:create_timer(settings)
     local timer = Timer.new(settings)
+    timer.uuid = self:gen_uuid()
     self.timers[timer.uuid] = timer
     return timer.uuid
 end
@@ -29,8 +32,16 @@ end
 function TimerManager:update(delta)
     for i, timer in pairs(self.timers) do
         timer:update(delta)
-        if timer:get_timeleft() < 0 and timer.repeating ~= true then self:remove_timer(timer.uuid) end
+        if timer:get_timeleft() < 0 and not timer.repeating then self:remove_timer(timer.uuid) end
     end
+end
+
+function TimerManager:gen_uuid()
+	local uuid = string.gsub(template, "[x]", function(c)
+		local s = love.math.random(0, 0xf)
+		return string.format("%x", s)
+	end)
+	return string.format(uuid)
 end
 
 function TimerManager:__tostring()
