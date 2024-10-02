@@ -26,7 +26,7 @@ function TimerManager:get_timer(timer_name)
     return self.timers[timer_name]
 end
 
-function TimerManager:update(delta) 
+function TimerManager:update(delta)
     for i, timer in pairs(self.timers) do
         timer:update(delta)
         if timer:get_timeleft() < 0 and timer.repeating ~= true then self:remove_timer(timer.uuid) end
