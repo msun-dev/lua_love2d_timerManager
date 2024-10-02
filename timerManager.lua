@@ -1,6 +1,6 @@
 require("timer")
 
-local template = ("-xxxxxxxx-xxxx-xxxx-xxxxxxxx")
+local template = ("Timer-xxxxxxxx-xxxx-xxxx-xxxxxxxx")
 
 TimerManager = {
     timers = {}
