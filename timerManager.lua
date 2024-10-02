@@ -6,7 +6,7 @@ TimerManager = {
 TimerManager.__index =  TimerManager
 TimerManager.__type = "TimerManager"
 
-function TimerManager:initiate()
+function TimerManager:new()
     local object = {}
     setmetatable(object, TimerManager)
     return object
