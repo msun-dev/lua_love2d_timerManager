@@ -16,6 +16,7 @@ Timer.__index = Timer
 function Timer.new(settings)
     local object = {}
     setmetatable(object, Timer)
+    object.uuid = utils.gen_uuid(object.__type)
 
     assert(settings.callback, string.format("%s: Missing callback for timer.", object.uuid))
 
