@@ -6,9 +6,12 @@ require("timerManager")
 function love.load()
     -- Global variables
     Timer_manager = TimerManager:new()
+    Font = love.graphics.newFont("Verdana.ttf")
+    
 
     -- Timers
     Timer_1sec = Timer_manager:create_timer({
+        repeating = true,
         callback = function ()
             print("1 second")
         end
@@ -25,11 +28,13 @@ function love.load()
 end
 
 function love.draw()
-    love.graphics.clear()
+    --love.graphics.clear()
+
 end
 
 function love.update(delta)
     Timer_manager:update(delta)
+
     --print(Timer_manager)
 end
 
