@@ -18,7 +18,6 @@ function Timer.new(settings)
     setmetatable(object, Timer)
     object.uuid = utils.gen_uuid(object.__type)
 
-    assert(settings, string.format("%s: Missing settings", object.uuid))
     assert(settings.callback, string.format("%s: Missing callback for timer.", object.uuid))
 
     if settings.duration ~= nil then object.duration = settings.duration end
