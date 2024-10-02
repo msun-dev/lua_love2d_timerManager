@@ -1,27 +1,31 @@
 -- Imports
-require("color")
 require("timer")
 require("timerManager")
 
 -- Main functions
 function love.load()
     -- Global variables
-    Color_background = Color:random()
-    Timer_manager = TimerManager:initiate()
+    Timer_manager = TimerManager:new()
 
     -- Timers
     Timer_1sec = Timer_manager:create_timer({
-        duration = 1,
+        callback = function ()
+            print("1 second")
+        end
+    })
+
+    Timer_5sec = Timer_manager:create_timer({
+        duration = 5,
         autostart = true,
         repeating = true,
         callback = function ()
-            Color_background:randomize_rgb()
+            print("5 seconds")
         end
     })
 end
 
 function love.draw()
-    love.graphics.clear(Color_background:rgb())
+    love.graphics.clear()
 end
 
 function love.update(delta)
