@@ -67,8 +67,9 @@ function Timer:__tostring()
                         "| Duration: "..self.duration..
                         "| Autostart: "..tostring(self.autostart)..
                         "| Repeating: "..tostring(self.repeating)..
-                        "| Time left: "..self.time_left..
-                        "| Stopped: "..tostring(self.stopped))
+                        "| Stopped: "..tostring(self.stopped)..
+                        "| Autoremove:"..tostring(self.autoremove)..
+                        "| Time left: "..utils.strip(self.time_left, 2))
 end
 
 function Timer:__add(time)
