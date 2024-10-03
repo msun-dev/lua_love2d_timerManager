@@ -15,6 +15,12 @@ function TimerManager.new(settings)
     return object
 end
 
+-- Getters/Setters
+function TimerManager:get_timer(timer_name)
+    return self.timers[timer_name]
+end
+
+-- TimerManager methods
 function TimerManager:create_timer(settings)
     local timer = Timer.new(settings)
     timer.uuid = self:gen_uuid()
@@ -24,10 +30,6 @@ end
 
 function TimerManager:remove_timer(timer_name)
     self.timers[timer_name] = nil
-end
-
-function TimerManager:get_timer(timer_name)
-    return self.timers[timer_name]
 end
 
 function TimerManager:update(delta)
@@ -48,6 +50,7 @@ function TimerManager:gen_uuid()
 	return string.format(uuid)
 end
 
+-- Metamethods
 function TimerManager:__tostring()
     local out = string.format(self.name.." - Current timers:\n")
     for i, timer in pairs(self.timers) do
