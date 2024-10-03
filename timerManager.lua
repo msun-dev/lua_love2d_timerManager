@@ -9,10 +9,10 @@ TimerManager = {
 TimerManager.__index =  TimerManager
 TimerManager.__type = "TimerManager"
 
-function TimerManager:new(settings)
+function TimerManager.new(settings)
     local object = {}
     setmetatable(object, TimerManager)
-    if settings.name then self.name = settings.name end
+    if settings.name then object.name = settings.name end
     return object
 end
 
