@@ -16,9 +16,7 @@ Timer.__index = Timer
 function Timer.new(settings)
     local object = {}
     setmetatable(object, Timer)
-
     assert(settings.callback, string.format("%s: Missing callback for timer.", object.uuid))
-
     if settings.duration ~= nil then object.duration = settings.duration end
     if settings.autostart ~= nil then object.autostart = settings.autostart end
     if settings.repeating ~= nil then object.repeating = settings.repeating end
