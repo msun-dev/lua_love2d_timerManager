@@ -6,7 +6,7 @@ TimerManager = {
     name = "TimerManager",
     timers = {}
 }
-TimerManager.__index =  TimerManager
+TimerManager.__index = TimerManager
 
 function TimerManager.new(settings)
     local object = {}
