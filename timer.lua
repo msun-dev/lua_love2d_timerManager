@@ -56,10 +56,9 @@ function Timer:execute()
 end
 
 function Timer:update(delta)
-    if self.autostart and self.stopped then self:start() end
     if self.stopped then return end
-    self.time_left = self.time_left - delta
     if self.time_left < 0.0 then self:execute() end
+    self.time_left = self.time_left - delta
 end
 
 -- Metamethods
