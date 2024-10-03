@@ -50,7 +50,7 @@ function TimerManager:gen_uuid()
 end
 
 function TimerManager:__tostring()
-    local out = string.format(self.name.."Current timers:\n")
+    local out = string.format(self.name.." - Current timers:\n")
     for i, timer in pairs(self.timers) do
         out = string.format(out.."\t"..timer:__tostring().."\n")
     end
