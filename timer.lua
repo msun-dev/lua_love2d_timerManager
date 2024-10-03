@@ -5,6 +5,7 @@ Timer = {
     duration = 1,        -- Timer duration
     autostart = true,    -- Starts automatically after creating
     repeating = false,   -- Repeats automatically after ending
+    autoremove = false,  -- Removed automatically by manager
     callback = nil,      -- Called upon ending
 
     time_left = 0,       -- How much time left
