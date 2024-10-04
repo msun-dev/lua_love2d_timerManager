@@ -9,7 +9,7 @@ function utils.clamp(x, min, max)
 end
 
 function utils.strip(num, decimals)
-	return string.sub(num * 10 ^ decimals, 0, decimals) / 10 ^ decimals
+	return string.sub(num * 10 ^ decimals+2, 0, decimals+2) / 10 ^ (decimals)
 end
 
 return utils
