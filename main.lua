@@ -1,19 +1,17 @@
 -- Imports
 require("timer")
-require("timerManager")
+require("timerManager") -- Optionally you can only import timerManager
 
+-- Initialising timer managers
 Timer_manager_default = TimerManager:new({name="TimerManager-Default"})
 Timer_manager_chain = TimerManager:new({name="TimerManager-Chain"})
 
--- Main functions
 function love.load()
-    -- Settings
+    -- Love2D settings
     love.window.setMode(900, 250)
-
-    -- Global variables
     Font = love.graphics.newFont("Verdana.ttf", 12)
 
-    -- Timers
+    -- Timers insitialisation
     Timer_1sec = Timer_manager_default:create_timer({
         duration = 1,
         autostart = true,
@@ -52,13 +50,13 @@ function love.load()
 end
 
 function love.update(delta)
+    -- Updating every timer manager 
     Timer_manager_default:update(delta)
     Timer_manager_chain:update(delta)
-    --print(Timer_manager)
 end
 
 function love.draw()
-    --love.graphics.clear()
+    -- Debug info
     love.graphics.setFont(Font)
     love.graphics.print(Timer_manager_default:__tostring(), 0, 0)
     love.graphics.print(Timer_manager_chain:__tostring(), 0, 50)
