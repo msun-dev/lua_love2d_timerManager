@@ -35,7 +35,7 @@ function Timer:is_stopped()
     return self.stopped
 end
 
--- Timer methods
+-- User methods
 function Timer:start()
     self.time_left = self.duration
     self.stopped = false
