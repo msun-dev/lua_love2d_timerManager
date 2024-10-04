@@ -15,9 +15,10 @@ function Timer.new(settings)
     local object = {}
     setmetatable(object, Timer)
     assert(settings.callback, string.format("%s: Missing callback for timer.", object.uuid))
-    settings.duration = (settings.duration or object.duration)
-    settings.autostart =  (object.autostart or settings.autostart)
-    settings.repeating =  (object.repeating or settings.repeating)
+    object.duration = (settings.duration or object.duration)
+    object.autostart = (settings.autostart or object.autostart)
+    object.repeating = (settings.repeating or object.repeating)
+    object.autoremove = (settings.autoremove or object.autoremove)
     object.callback = settings.callback
     if object.autostart then object:start() end
     return object
