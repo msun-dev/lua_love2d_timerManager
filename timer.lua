@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 Timer = {
     uuid = "",           -- Assigned randomly
     duration = 1,        -- Timer duration
