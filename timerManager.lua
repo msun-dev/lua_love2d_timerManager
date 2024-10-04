@@ -19,7 +19,7 @@ function TimerManager:get_timer(timer_name)
     return self.timers[timer_name]
 end
 
--- TimerManager methods
+-- User methods
 function TimerManager:create_timer(settings)
     local timer = Timer.new(settings)
     timer.uuid = self:gen_uuid()
@@ -41,6 +41,7 @@ function TimerManager:update(delta)
     end
 end
 
+-- TimerManager methods
 function TimerManager:gen_uuid()
 	local uuid = string.gsub(template, "[x]", function(c)
 		local s = love.math.random(0, 0xf)
