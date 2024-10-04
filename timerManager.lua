@@ -20,6 +20,16 @@ function TimerManager:get_timer(timer_name)
 end
 
 -- User methods
+function TimerManager:update(delta)
+    for i, timer in pairs(self.timers) do
+        timer:update(delta)
+        if timer:get_timeleft() < 0
+            and not timer.repeating
+            and timer.autoremove
+            then self:remove_timer(timer.uuid) end
+    end
+end
+
 function TimerManager:create_timer(settings)
     local timer = Timer.new(settings)
     timer.uuid = self:gen_uuid()
@@ -29,16 +39,6 @@ end
 
 function TimerManager:remove_timer(timer_name)
     self.timers[timer_name] = nil
-end
-
-function TimerManager:update(delta)
-    for i, timer in pairs(self.timers) do
-        timer:update(delta)
-        if timer:get_timeleft() < 0
-            and not timer.repeating
-            and timer.autoremove
-            then self:remove_timer(timer.uuid) end
-    end
 end
 
 -- TimerManager methods
