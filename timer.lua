@@ -60,12 +60,12 @@ end
 -- Metamethods
 function Timer:__tostring()
      return string.format(self.uuid..
-                        "| Duration: "..self.duration..
-                        "| Autostart: "..tostring(self.autostart)..
-                        "| Repeating: "..tostring(self.repeating)..
-                        "| Stopped: "..tostring(self.stopped)..
-                        "| Autoremove:"..tostring(self.autoremove)..
-                        "| Time left: "..self.time_left)
+                        " | Duration: "..self.duration..
+                        " | Autostart: "..tostring(self.autostart)..
+                        " | Repeating: "..tostring(self.repeating)..
+                        " | Stopped: "..tostring(self.stopped)..
+                        " | Autoremove:"..tostring(self.autoremove)..
+                        " | Time left: "..self.time_left)
 end
 
 function Timer:__add(time)
