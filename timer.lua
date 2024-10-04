@@ -1,13 +1,12 @@
 Timer = {
-    uuid = "",           -- Assigned randomly
-    duration = 1,        -- Timer duration
-    autostart = true,    -- Starts automatically after creating
-    repeating = false,   -- Repeats automatically after ending
-    autoremove = false,  -- Removed automatically by manager
-    callback = nil,      -- Called upon ending
-
-    time_left = 0,       -- How much time left
-    stopped = true       -- Is timer running?
+    uuid = "",
+    duration = 1,
+    autostart = true,
+    repeating = false,
+    autoremove = false,
+    callback = nil,
+    time_left = 0,
+    stopped = true
 }
 Timer.__index = Timer
 
