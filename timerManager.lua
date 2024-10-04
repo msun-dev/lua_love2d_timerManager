@@ -2,16 +2,18 @@ require("timer")
 
 local template = ("Timer-xxxxxxxx")
 
-TimerManager = {
+TimerManager = {}
+
+--[[
+{
     name = "TimerManager",
     timers = {}
 }
-TimerManager.__index = TimerManager
-
-function TimerManager.new(settings)
-    local object = {}
-    setmetatable(object, TimerManager)
-    if settings.name then object.name = settings.name end
+]]
+function TimerManager:new(settings)
+    local object = setmetatable({}, {__index = TimerManager})
+    object.name = (settings.name or "TimerManager")
+    object.timers = {}
     return object
 end
 
