@@ -9,6 +9,7 @@ Timer_manager_chain = TimerManager.new({name="TimerManager-Chain"})
 function love.load()
     -- Love2D settings
     love.window.setMode(900, 250)
+    love.window.setTitle("Title Manager preview")
     Font = love.graphics.newFont("Verdana.ttf", 12)
 
     -- Timers insitialisation
