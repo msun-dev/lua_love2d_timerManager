@@ -3,8 +3,8 @@ require("timer")
 require("timerManager") -- Optionally you can only import timerManager
 
 -- Initialising timer managers
-Timer_manager_default = TimerManager:new({name="TimerManager-Default"})
-Timer_manager_chain = TimerManager:new({name="TimerManager-Chain"})
+Timer_manager_default = TimerManager.new({name="TimerManager-Default"})
+Timer_manager_chain = TimerManager.new({name="TimerManager-Chain"})
 
 function love.load()
     -- Love2D settings
