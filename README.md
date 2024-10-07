@@ -15,19 +15,19 @@ Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in
     - [timer.lua](#timerlua)
       - [Description](#description)
       - [Fields](#fields)
-        - [Generated fileds:](#generated-fileds)
+        - [Generated fields:](#generated-fields)
         - [User fields (settings table):](#user-fields-settings-table)
       - [Methods:](#methods)
       - [Metamethods](#metamethods)
-      - [How-to initialise](#how-to-initialise)
+      - [How-to initialize](#how-to-initialize)
     - [timerManager.lua](#timermanagerlua)
       - [Description](#description-1)
       - [Fields](#fields-1)
-        - [Generated fields](#generated-fields)
+        - [Generated fields](#generated-fields-1)
         - [User fields (settings table)](#user-fields-settings-table-1)
       - [Methods](#methods-1)
       - [Metamethods](#metamethods-1)
-      - [How-to initialise](#how-to-initialise-1)
+      - [How-to initialize](#how-to-initialize-1)
       - [Using timer manager in places besides Love2D](#using-timer-manager-in-places-besides-love2d)
 
 ## Preview
@@ -44,18 +44,18 @@ Main object that executes user-defined callback after some amount of time. Used 
 
 #### Fields
 
-##### Generated fileds:
+##### Generated fields:
 
-- ```uuid``` - Default value: ```""```. Value generated when initialised by timer manager.
-- ```time_left``` - Default value: ```0```. Shows how much time left until ```callback``` execution.  
+- ```uuid``` - Default value: ```""```. Value generated when initialized by timer manager.
+- ```time_left``` - Default value: ```0```. Shows the time left until ```callback``` execution.  
 - ```stopped``` - Default value: ```true```. Becomes ```true``` when ```time_left``` reaches 0. Timer doesn't update when ```stopped``` equals ```true```.
 
 ##### User fields (settings table):  
-- ```duration``` - Default value: ```1```. Duration of timer is seconds.
-- ```autostart``` - Default value: ```true```. If ```true``` timer will start automatically on initialisation.
+- ```duration``` - Default value: ```1```. Duration of the timer in seconds.
+- ```autostart``` - Default value: ```true```. If ```true```, the timer will start automatically on initialization.
 - ```repeating``` - Default value: ```false```. Timer will automatically start again after ```time_left``` reaches 0.
-- ```autoremove``` - Default value:```false```. Timer manager will automatically remove this timer if this field set to ```true``` and ```time_left``` reaches 0.  
-- ```callback``` - Default value: ```false```. Timer automatically executes this function when ```time_left``` reaches 0.
+- ```autoremove``` - Default value: ```false```. Timer manager will automatically remove this timer if this field is set to ```true``` and ```time_left``` reaches 0.  
+- ```callback``` - Default value: ```false```. The timer automatically executes this function when ```time_left``` reaches 0.
 
 
 #### Methods:
@@ -71,7 +71,7 @@ Main object that executes user-defined callback after some amount of time. Used 
     - Returns: ```number```
 
 - ```:set_duration(value)```
-    - Description: Sets duration of a timer.
+    - Description: Sets the duration of a timer.
     - Parameters: ```value``` - duration in seconds.
     - Returns: ```nothing```
 
@@ -91,7 +91,7 @@ Main object that executes user-defined callback after some amount of time. Used 
     - Returns: ```nothing```
 
 - ```:execute()```
-    - Description: Executes user-defiend callback.
+    - Description: Executes user-definend callback.
     - Parameters: ```none```
     - Returns: ```nothing```
  
@@ -114,16 +114,16 @@ Main object that executes user-defined callback after some amount of time. Used 
 
 - ```:__sub(value)```
     - Description: Remove time from ```time_left```
-    - Parameters: ```number``` - seconds to substract from ```time_left```
+    - Parameters: ```number``` - seconds to subtract from ```time_left```
     - Returns: ```nothing```
 
-#### How-to initialise
+#### How-to initialize
 With timer manager (assuming you've already initiated timerManager in variable ```TimerManager```):
 ```lua
 require("timer")
 
 Timer = TimerManager:create_timer({ -- TimerManager returns uuid of the timer
-    duration = 1,                   -- So you can get timer using this value
+    duration = 1,                   -- So you can get a timer using this value
     autostart = true,               -- in TimerManager:get_timer(uuid)
     repeating = true,
     autoremove = true,
@@ -153,13 +153,13 @@ end
 
 #### Description
 
-Manages timers. Allows you to keep all timer in one place and allows you to control and update all created timers at once. Timers are created with unique UUID so you can easily access them by using ```:get_timer(uuid)```. 
+Manages timers. Allows you to keep all timers in one place and allows you to control and update all created timers at once. Timers are created with unique UUID so you can easily access them by using ```:get_timer(uuid)```. 
 
 #### Fields
 
 ##### Generated fields
 
-- ```timers``` - Default value: ```{}```. Table of timers. Manager keeps them all there. 
+- ```timers``` - Default value: ```{}```. Table of timers. The manager keeps them all there. 
 
 ##### User fields (settings table)
 
@@ -204,7 +204,7 @@ Manages timers. Allows you to keep all timer in one place and allows you to cont
     - Parameters: ```none```
     - Returns: ```string``` - Timer manager representation.
 
-#### How-to initialise
+#### How-to initialize
 
 ```lua
 require("timerManager")
