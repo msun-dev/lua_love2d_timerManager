@@ -26,7 +26,7 @@ function TimerManager:update(delta)
         if timer:get_timeleft() < 0
             and not timer.repeating
             and timer.autoremove
-            then self:remove_timer(timer.uuid) end
+                then self:remove_timer(timer.uuid) end
     end
 end
 
