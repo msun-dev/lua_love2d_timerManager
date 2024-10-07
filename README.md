@@ -32,7 +32,7 @@ Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in
 
 ## Preview
 
-*.jiff file*
+![project-preview](./preview.gif)
 
 ## Documentation
 
@@ -224,4 +224,3 @@ For example, using lua math library you can do this:
 +4: local seed = os.time()
 47: local s = math.random(0, 0xf) 
 ```
-
