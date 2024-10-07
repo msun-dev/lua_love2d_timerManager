@@ -7,7 +7,7 @@ TimerManager = {
     timers = {}
 }
 
-function TimerManager:new(settings)
+function TimerManager.new(settings)
     local object = setmetatable({}, {__index = TimerManager})
     object.name = (settings.name or "TimerManager")
     object.timers = {}
