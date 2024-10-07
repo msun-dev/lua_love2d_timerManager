@@ -29,8 +29,6 @@ Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in
       - [Metamethods](#metamethods-1)
       - [How-to initialise](#how-to-initialise-1)
       - [Using timer manager in places besides Love2D](#using-timer-manager-in-places-besides-love2d)
-  - [TODO](#todo)
-    - [General](#general)
 
 ## Preview
 
@@ -227,8 +225,3 @@ For example, using lua math library you can do this:
 47: local s = math.random(0, 0xf) 
 ```
 
-## TODO
-
-### General
-
-- [ ] - Make better preview
