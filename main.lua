@@ -12,6 +12,7 @@ function love.load()
     Font = love.graphics.newFont("Verdana.ttf", 12)
 
     -- Timers insitialisation
+    -- Simple timers
     Timer_1sec = Timer_manager_default:create_timer({
         duration = 1,
         autostart = true,
@@ -26,6 +27,14 @@ function love.load()
         callback = function () end
     })
 
+    Timer_5sec = Timer_manager_default:create_timer({
+        duration = 5,
+        autostart = true,
+        repeating = true,
+        callback = function () end
+    })
+
+    -- Chained timers
     Timer_chain1 = Timer_manager_chain:create_timer({
         duration = 5,
         autostart = true,
@@ -59,6 +68,6 @@ function love.draw()
     -- Debug info
     love.graphics.setFont(Font)
     love.graphics.print(Timer_manager_default:__tostring(), 0, 0)
-    love.graphics.print(Timer_manager_chain:__tostring(), 0, 50)
+    love.graphics.print(Timer_manager_chain:__tostring(), 0, 75)
 end
 
