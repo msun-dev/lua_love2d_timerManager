@@ -27,6 +27,10 @@ function Timer:get_timeleft()
     return self.time_left
 end
 
+function Timer:set_duration(value)
+    self.duration = value
+end
+
 function Timer:is_stopped()
     return self.stopped
 end
@@ -67,10 +71,10 @@ function Timer:__tostring()
                         " | Time left: "..self.time_left)
 end
 
-function Timer:__add(time)
-    self.time_left = self.time_left + time
+function Timer:__add(value)
+    self.time_left = self.time_left + value
 end
 
-function Timer:__sub(time)
-    self.time_left = self.time_left - time
+function Timer:__sub(value)
+    self.time_left = self.time_left - value
 end
