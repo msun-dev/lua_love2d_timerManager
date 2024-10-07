@@ -8,12 +8,10 @@ Timer = {
     time_left = 0,
     stopped = true
 }
-Timer.__index = Timer
 
 -- General methods
 function Timer.new(settings)
-    local object = {}
-    setmetatable(object, Timer)
+    local object = setmetatable({}, {__index = Timer})
     assert(settings.callback, string.format("%s: Missing callback for timer.", object.uuid))
     if settings.duration ~= nil then object.duration = settings.duration end
     if settings.autostart ~= nil then object.autostart = settings.autostart end
