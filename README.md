@@ -12,6 +12,8 @@ Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in
   - [About](#about)
   - [Table of contents](#table-of-contents)
   - [Preview](#preview)
+  - [Downloading](#downloading)
+  - [Using timer manager in places besides Love2D](#using-timer-manager-in-places-besides-love2d)
   - [Documentation](#documentation)
     - [timer.lua](#timerlua)
       - [Description](#description)
@@ -29,13 +31,36 @@ Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in
       - [Methods](#methods-1)
       - [Metamethods](#metamethods-1)
       - [How-to initialize](#how-to-initialize-1)
-      - [Using timer manager in places besides Love2D](#using-timer-manager-in-places-besides-love2d)
+  - [Contributing](#contributing)
 
 ## Preview
 
 ![project-preview](./preview.gif)
 
+## Downloading 
+
+```sh
+git clone https://github.com/msun-dev/lua_love2d_timerManager
+```
+
+Remove all unneeded files afterwards.
+
+## Using timer manager in places besides Love2D
+
+In timerManager.lua change line #47:
+```lua
+47: local s = love.math.random(0, 0xf) -- This line should be changed
+```
+
+For example, using lua math library you can do this:
+```lua
++4: local seed = os.time() -- Add it before all initializations
+47: local s = math.random(0, 0xf) -- Change to your preferred method
+```
+
 ## Documentation
+
+Timers related documentation. How timers and timerManager work, methods, how to initialize, etc. Everything that is somewhat related to timers.
 
 ### timer.lua
 
@@ -213,15 +238,6 @@ require("timerManager")
 Timer_manager = TimerManager.new({name="TimerManager_basic"})
 ```
 
-#### Using timer manager in places besides Love2D
+## Contributing
 
-In timerManager.lua change line #47:
-```lua
-47: local s = love.math.random(0, 0xf)
-```
-
-For example, using lua math library you can do this:
-```lua
-+4: local seed = os.time()
-47: local s = math.random(0, 0xf) 
-```
+Pull requests are opened. Issues too. Any help is appreciated and will be rewarded with virtual cookies (like this one: 🍪). 
