@@ -27,6 +27,10 @@ function Timer:get_timeleft()
     return self.time_left
 end
 
+function Timer:get_duration()
+    return self.duration
+end
+
 function Timer:set_duration(value)
     self.duration = value
 end
