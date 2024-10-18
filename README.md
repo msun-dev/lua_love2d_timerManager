@@ -3,7 +3,7 @@
 ## About
 
 This is a timer library for Love2D.
-Allows you to keep all timers in one place and allows you to control and update all created timers at once. Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in-places-besides-love2d)
+Allows you to create, control and keep all created timers in one place. Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in-places-besides-love2d)
 
 ![project-preview](./screenshots/preview.gif)
 
