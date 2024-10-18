@@ -35,6 +35,10 @@ function Timer:get_duration()
     return self.duration
 end
 
+function Timer:get_uuid()
+    return self.uuid
+end
+
 function Timer:set_duration(value)
     self.duration = value
 end
