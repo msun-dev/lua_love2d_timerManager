@@ -23,6 +23,15 @@ function TimerManager:get_timers()
     return self.timers
 end
 
+function TimerManager:get_timer_by_num(num)
+    return self.timers[num]
+end
+
+function TimerManager:get_timers_num()
+    local count = 0
+    for _ in pairs(self.timers) do count = count + 1 end
+    return count
+end
 -- User methods
 function TimerManager:update(delta)
     for i, timer in pairs(self.timers) do
