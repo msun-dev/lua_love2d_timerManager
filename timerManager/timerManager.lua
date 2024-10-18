@@ -19,6 +19,10 @@ function TimerManager:get_timer(timer_name)
     return self.timers[timer_name]
 end
 
+function TimerManager:get_timers()
+    return self.timers
+end
+
 -- User methods
 function TimerManager:update(delta)
     for i, timer in pairs(self.timers) do
