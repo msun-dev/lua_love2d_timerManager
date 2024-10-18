@@ -22,7 +22,10 @@ end
 function draw_progress(fraction, position, size, color)
     love.graphics.setColor(color)
     love.graphics.rectangle("fill",
-                            position.x + foreground_padding, position.y + foreground_padding,
-                            size.w * fraction - foreground_padding * 2, size.h - foreground_padding * 2)
-                            -- add clamp
+                position.x + foreground_padding, position.y + foreground_padding,
+                clamp(size.w * fraction - foreground_padding * 2), size.h - foreground_padding * 2)
+end
+
+function clamp(value)
+    if value < 0 then return 0 else return value end
 end
