@@ -70,36 +70,7 @@ function love.draw()
     -- Debug info
     love.graphics.setColor({255,255,255})
     love.graphics.setFont(Font)
-
     -- Default timer manager
-    love.graphics.print(Timer_manager_default:__tostring(), 0, 0)
-    local timers = Timer_manager_default:get_timers()
-    local i = 0
-    for key, timer in pairs(timers) do
-        love.graphics.print(timer:get_uuid(), 25 + (200 * i), 75)
-        love.graphics.print(string.format("Duration: ".. timer:get_duration()), 25 + (200 * i), 87)
-        love.graphics.print(string.format("Time left: " .. timer:get_timeleft()), 25 + (200 * i), 99)
-        local progress = timer:get_timeleft() / timer:get_duration()
-        DrawProgressBar(progress,
-                        {x=25 + (200 * i), y=115}, -- Yeah-yeah, magic numbers, I know
-                        {w=100, h=25},
-                        {100,100,100, 128})
-        i = i + 1
-    end
-
-    -- Chain timer manager
-    love.graphics.print(Timer_manager_chain:__tostring(), 0, 150)
-    local timers = Timer_manager_chain:get_timers()
-    local i = 0
-    for key, timer in pairs(timers) do
-        love.graphics.print(timer:get_uuid(), 25 + (200 * i), 75 + 150)
-        love.graphics.print(string.format("Duration: ".. timer:get_duration()), 25 + (200 * i), 87 + 150)
-        love.graphics.print(string.format("Time left: " .. timer:get_timeleft()), 25 + (200 * i), 99 + 150)
-        local progress = timer:get_timeleft() / timer:get_duration()
-        DrawProgressBar(progress,
-                        {x=25 + (200 * i), y=115 + 150}, -- Yeah-yeah, magic numbers, I know
-                        {w=100, h=25},
-                        {100,100,100, 128})
-        i = i + 1
-    end
+    draw_debug(Timer_manager_default, {x=10, y=10}, Font)
+    draw_debug(Timer_manager_chain, {x=10, y=160}, Font)
 end
