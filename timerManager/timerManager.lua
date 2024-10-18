@@ -1,4 +1,4 @@
-require("timer")
+require("timerManager.timer")
 
 local template = ("Timer-xxxxxxxx")
 
