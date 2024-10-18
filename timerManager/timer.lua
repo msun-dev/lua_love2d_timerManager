@@ -24,7 +24,11 @@ end
 
 -- Getters/setters
 function Timer:get_timeleft()
-    return self.time_left
+    if self.time_left <= 0 then
+        return 0.00
+    else
+        return self.time_left
+    end
 end
 
 function Timer:get_duration()
