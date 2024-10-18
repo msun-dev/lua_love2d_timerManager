@@ -67,10 +67,6 @@ function love.update(delta)
 end
 
 function love.draw()
-    -- Debug info
-    love.graphics.setColor({255,255,255})
-    love.graphics.setFont(Font)
-    -- Default timer manager
     draw_debug(Timer_manager_default, {x=10, y=10}, Font)
     draw_debug(Timer_manager_chain, {x=10, y=160}, Font)
 end
