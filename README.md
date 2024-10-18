@@ -3,8 +3,7 @@
 ## About
 
 This is a timer library for Love2D.
-Allows you to keep all timers in one place and allows you to control and update all created timers at once
-Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in-places-besides-love2d)
+Allows you to keep all timers in one place and allows you to control and update all created timers at once. Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in-places-besides-love2d)
 
 ## Table of contents
 
@@ -32,10 +31,13 @@ Can also be used anywhere by [altering timerManager.lua](#using-timer-manager-in
       - [Metamethods](#metamethods-1)
       - [How-to initialize](#how-to-initialize-1)
   - [Contributing](#contributing)
+  - [TO-DO](#to-do)
+  - [Fun things](#fun-things)
+    - [#1 - Timers created in random order](#1---timers-created-in-random-order)
 
 ## Preview
 
-![project-preview](./preview.gif)
+![project-preview](./screenshots/preview.gif)
 
 ## Downloading 
 
@@ -44,6 +46,8 @@ git clone https://github.com/msun-dev/lua_love2d_timerManager
 ```
 
 Remove all unneeded files afterwards.
+
+Or use something like [downgit](https://downgit.github.io/#/home) to download a single folder.
 
 ## Using timer manager in places besides Love2D
 
@@ -95,6 +99,16 @@ Main object that executes user-defined callback after some amount of time. Used 
     - Description: Returns value of ```time_left``` field.
     - Parameters: ```none```
     - Returns: ```number```
+
+- ```:get_duration()```
+  - Description: Returns value of ```duration``` field.
+  - Parameters: ```none```
+  - Returns: ```number```
+
+- ```:get_uuid```
+  - Description: Returns value of ```uuid``` field.
+  - Parameters: ```none```
+  - Returns: ```string```
 
 - ```:set_duration(value)```
     - Description: Sets the duration of a timer.
@@ -203,6 +217,21 @@ Manages timers. Allows you to keep all timers in one place and allows you to con
     - Parameters: ```uuid``` - UUID string of a timer.
     - Returns: ```table```
 
+- ```:get_timers()```
+    - Description: Get ```timers``` table.
+    - Parameters: ```none```
+    - Returns: ```table```
+
+- ```:get_timer_by_num()```
+    - Description: Get timer using index number.
+    - Parameters: ```index``` - index of a timer.
+    - Returns: ```table```
+
+- ```:get_timer_count()```
+    - Description: Get timer count in ```timers``` table.
+    - Parameters: ```none```
+    - Returns: ```number```
+
 - ```:update(delta)```
     - Description: Updates all timers in ```timer``` table by ```delta``` value. 
     - Parameters: ```delta``` - delta between frames. 
@@ -240,4 +269,20 @@ Timer_manager = TimerManager.new({name="TimerManager_basic"})
 
 ## Contributing
 
-Pull requests are opened. Issues too. Any help is appreciated and will be rewarded with virtual cookies (like this one: 🍪). 
+Pull requests are opened. Issues too. Any help is appreciated and will be rewarded with virtual cookies (like this one: 🍪). Down below is a TO-DO list og things that left to do. For every completed TO-DO task you will get 3 (🍪🍪🍪) cookies.
+
+## TO-DO
+
+- [ ] - Refractoring:
+  - [ ] - general: fix code style
+  - [ ] - general: fix methods names
+
+## Fun things
+
+### #1 - Timers created in random order
+
+For some reasons lua creates timers in random order:
+
+![funny-thing-preview](./screenshots/funny-thing.png)
+
+If you know why that happens, please, let me know!
