@@ -10,15 +10,15 @@ local timer_debug_left_margin = 25
 local progressbar_left_margin = 75
 local progressbar_size = {w = 100,h = 25}
 local progressbar_inner_color = {255,255,255}
-local progressbar_outer_color = {255,255,255}
-local progressbar_outer_margin = 3
+local progressbar_outline_color = {255,255,255}
+local progressbar_outline_margin = 3
 
 
 function draw_debug(manager, position, font)
     draw_manager_debug(manager, position, font)
     local timer_debug_pos = {}
     local lines = manager:get_timer_count()
-    timer_debug_pos.y = timer_debug_upper_margin + lines * font:getHeight()
+    timer_debug_pos.y = position.y + timer_debug_upper_margin + lines * font:getHeight()
     local index = 0
     for key, timer in pairs(manager:get_timers()) do
         timer_debug_pos.x = timer_debug_left_margin + position.x
@@ -57,7 +57,7 @@ function draw_timer_progress(progress, position)
 end
 
 function draw_background(position)
-    love.graphics.setColor(progressbar_outer_color)
+    love.graphics.setColor(progressbar_outline_color)
     love.graphics.rectangle("line", position.x, position.y,
                             progressbar_size.w, progressbar_size.h)
 end
@@ -65,9 +65,9 @@ end
 function draw_progress(progress, position)
     love.graphics.setColor(progressbar_inner_color)
     love.graphics.rectangle("fill",
-                position.x + progressbar_outer_margin, position.y + progressbar_outer_margin,
-                clamp(progressbar_size.w * progress - progressbar_outer_margin * 2), -- TO-DO: remove multiplication
-                progressbar_size.h - progressbar_outer_margin * 2)
+                position.x + progressbar_outline_margin, position.y + progressbar_outline_margin,
+                clamp(progressbar_size.w * progress - progressbar_outline_margin * 2), -- TO-DO: remove multiplication
+                progressbar_size.h - progressbar_outline_margin * 2)
 end
 
 function clamp(value)
